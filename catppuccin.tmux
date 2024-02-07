@@ -84,6 +84,12 @@ main() {
   local date_time
   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
   readonly date_time
+  
+  # Custom lines to show VPN in the status bar
+
+  local show_vpn
+  local vpn_prompt="#[fg=$thm_blue,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_blue,nobold,nounderscore,noitalics]󰩠 #[fg=$thm_fg,bg=$thm_gray]"
+  readonly show_vpn="#(/home/user/check_vpn \"$vpn_prompt\")"
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   local show_directory
@@ -152,7 +158,7 @@ main() {
 
   set status-left ""
 
-  set status-right "${right_column1},${right_column2}"
+  set status-right "${show_vpn}${right_column1},${right_column2}"
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
