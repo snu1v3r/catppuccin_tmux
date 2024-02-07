@@ -89,7 +89,7 @@ main() {
 
   local show_vpn
   local vpn_prompt="#[fg=$thm_blue,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_blue,nobold,nounderscore,noitalics]󰩠 #[fg=$thm_fg,bg=$thm_gray]"
-  readonly show_vpn="#(/home/user/check_vpn \"$vpn_prompt\")"
+  readonly show_vpn="#(${PLUGIN_DIR}/check_vpn.sh \"$vpn_prompt\")"
 
   # These variables are the defaults so that the setw and set calls are easier to parse.
   local show_directory
